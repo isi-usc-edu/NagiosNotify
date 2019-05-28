@@ -10,9 +10,9 @@ name (Service only)
 
 All of the global variables at the beginning of nagiosnotify_slack.py and nagiosnotify_teams.py 
 can be overriden by command line arguments.  Both nagiosnotify_slack.py and nagiosnotify_teams.py
-require nagiosnotify.py but do not require each other.
+require nagiosnotify.py, but do not require each other.
 
-The code works with Python 2.6, 2.7, and 3.7.  The unit test code requires Python 2.7 and 3.7.
+The code works with Python 2.6, 2.7, and 3.7.  The unit test code works with Python 2.7 and 3.7.
 
 
 
@@ -113,7 +113,7 @@ Steps to configure the notifications within Nagios.
         1. Alert Settings > Manage Service Notification Commands: slack-service-notification
         1. NOTE: For an Override contact, do the same as above but then do the following.  Do not do this for the Slack contact
             1. Misc Settings > Manage Free Variables > 
-                1. Name: _overridechannel    NOTE: This is the same channel name as $_CONTACTOVERRIDECHANNEL$ using Nagios rules for Contact ENVs
+                1. Name: _overridechannel    NOTE: This is the same variable name as $_CONTACTOVERRIDECHANNEL$ using Nagios rules for Contact ENVs
                 1. Value: #some-override-channel
             1. Select Insert
         1. Select Save > Apply Configuration

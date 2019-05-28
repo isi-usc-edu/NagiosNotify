@@ -113,7 +113,7 @@ Steps to configure the notifications within Nagios.
         1. Alert Settings > Manage Service Notification Commands: slack-service-notification
         1. NOTE: For an Override contact, do the same as above but then do the following.  Do not do this for the Slack contact
             1. Misc Settings > Manage Free Variables > 
-                1. Name: _overridechannel    NOTE: This is the same channel name as $_CONTACTOVERRIDECHANNEL$ using Nagios rules for Contact ENVs
+                1. Name: _overridechannel    NOTE: This is the same variable name as $_CONTACTOVERRIDECHANNEL$ using Nagios rules for Contact ENVs
                 1. Value: #some-override-channel
             1. Select Insert
         1. Select Save > Apply Configuration

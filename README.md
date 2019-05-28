@@ -10,9 +10,9 @@ name (Service only)
 
 All of the global variables at the beginning of nagiosnotify_slack.py and nagiosnotify_teams.py 
 can be overriden by command line arguments.  Both nagiosnotify_slack.py and nagiosnotify_teams.py
-require nagiosnotify.py but do not require each other.
+require nagiosnotify.py, but do not require each other.
 
-The code works with Python 2.6, 2.7, and 3.7.  The unit test code requires Python 2.7 and 3.7.
+The code works with Python 2.6, 2.7, and 3.7.  The unit test code works with Python 2.7 and 3.7.
 
 
 

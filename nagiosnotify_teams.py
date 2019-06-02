@@ -111,7 +111,7 @@ class TeamsNotify(NagiosNotify):
 
     # Create a link to Nagios
     def _get_link(self, host):
-        text_message = "[See Nagios](https://{0}/nagiosxi/includes/components/xicore/status.php?host={1}) "
+        text_message = " [See Nagios](https://{0}/nagiosxi/includes/components/xicore/status.php?host={1}) "
         return text_message.format(self._NAGIOS_SERVER, host)
 
     # Set the icon to display

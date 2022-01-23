@@ -4,27 +4,29 @@ Nagios Integration with Slack and Microsoft Teams
 
 
 ## Description
-Scripts to send Nagios notifications to Slack or Microsoft Teams.  The scripts support 
-multiple channel notifications based on notification state (Host / Service) and service 
+Scripts to send Nagios notifications to Slack or Microsoft Teams.  The scripts support
+multiple channel notifications based on notification state (Host / Service) and service
 name (Service only)
 
-All of the global variables at the beginning of nagiosnotify_slack.py and nagiosnotify_teams.py 
+All of the global variables at the beginning of nagiosnotify_slack.py and nagiosnotify_teams.py
 can be overriden by command line arguments.  Both nagiosnotify_slack.py and nagiosnotify_teams.py
 require nagiosnotify.py, but do not require each other.
 
-The code works with Python 2.6, 2.7, and 3.7.  The unit test code works with Python 2.7 and 3.7.
+The code works with Python 2.7 and 3.7.  The unit test code works with Python 2.7 and 3.7.
+
+NOTE: Removed Python 2.6 from being supported due to security vulnerabilities in urllib3 library that no longer supports 2.6 as well.
 
 
 
 #### Logic blueprint:
 
-| Override   | Primary  | Secondary | State List | Service Name List | Result                     | 
-| :--------: |:--------:| :--------:| :---------:| :---------------: | :------------------------: | 
-| A          | B        | C         | [ ]        | [ ]               | A                          | 
-|            | B        |           |            |                   | B                          | 
-|            | B        | C         |            |                   | B                          | 
-|            | B        | C         | [ ]        |                   | if in [ ] C else B         | 
-|            | B        | C         |            | [ ]               | if in [ ] C else B         | 
+| Override   | Primary  | Secondary | State List | Service Name List | Result                     |
+| :--------: |:--------:| :--------:| :---------:| :---------------: | :------------------------: |
+| A          | B        | C         | [ ]        | [ ]               | A                          |
+|            | B        |           |            |                   | B                          |
+|            | B        | C         |            |                   | B                          |
+|            | B        | C         | [ ]        |                   | if in [ ] C else B         |
+|            | B        | C         |            | [ ]               | if in [ ] C else B         |
 |            | B        | C         | [ ]        | [ ]               | if in [ ] and [ ] C else B |    
 
 
@@ -112,12 +114,9 @@ Steps to configure the notifications within Nagios.
         1. Alert Settings > Manage Host Notification Commands: slack-host-notification
         1. Alert Settings > Manage Service Notification Commands: slack-service-notification
         1. NOTE: For an Override contact, do the same as above but then do the following.  Do not do this for the Slack contact
-            1. Misc Settings > Manage Free Variables > 
+            1. Misc Settings > Manage Free Variables >
                 1. Name: _overridechannel    NOTE: This is the same variable name as $_CONTACTOVERRIDECHANNEL$ using Nagios rules for Contact ENVs
                 1. Value: #some-override-channel
             1. Select Insert
         1. Select Save > Apply Configuration
 1. Add the contact to any host or service configuration
-
-
-

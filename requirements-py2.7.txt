@@ -1,4 +1,4 @@
-requests==2.22.0
-urllib3==1.25.2
-future==0.17.1
+requests==2.27.1
+urllib3==1.26.8
+future==0.18.2
 mock==2.0.0
